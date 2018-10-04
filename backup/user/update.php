@@ -18,11 +18,7 @@ $db_username = "root";
 $db_password = "";
   
 try {
-    $dsn = getenv('MYSQL_DSN');
-    $user = getenv('MYSQL_USER');
-    $password = getenv('MYSQL_PASSWORD');
-    $con = new PDO($dsn, $user, $password);
-    //$con = new PDO("mysql:host={$host};dbname={$db_name}", $db_username, $db_password);
+    $con = new PDO("mysql:host={$host};dbname={$db_name}", $db_username, $db_password);
 }
 catch(PDOException $exception){
     echo "Connection error: " . $exception->getMessage();

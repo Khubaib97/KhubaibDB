@@ -5,22 +5,18 @@ $username = "root";
 $password = "";
   
 try {
-    $dsn = getenv('MYSQL_DSN');
-    $user = getenv('MYSQL_USER');
-    $password = getenv('MYSQL_PASSWORD');
-    $con = new PDO($dsn, $user, $password);
-    //$con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
+    $con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
 }
 catch(PDOException $exception){
     echo "Connection error: " . $exception->getMessage();
 }
  
 try {
-    $id=isset($_GET['id']) ? $_GET['id'] : die('ERROR: Record ID not found.');
- 
-    $query = "DELETE FROM CUSTOMER_13102 WHERE Shop_ID = ?";
+    $spid=isset($_GET['spid']) ? $_GET['spid'] : die('ERROR: Record ID not found.');
+    $cid=isset($_GET['cid']) ? $_GET['cid'] : die('ERROR: Record CID not found.');
+
+    $query = "DELETE FROM SALESPERSON_13102 WHERE SP_ID='$spid' AND CUSTOMER_ID='$cid'";
     $stmt = $con->prepare($query);
-    $stmt->bindParam(1, $id);
      
     if($stmt->execute()){
         header('Location: table.php?action=deleted');

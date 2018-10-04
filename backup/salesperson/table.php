@@ -1,6 +1,6 @@
 <html>
 <div class="page-header">
-	<h1 align="center">Product Table</h1>
+	<h1 align="center">Salesperson Table</h1>
 </div>
 </html>
 <?php
@@ -14,42 +14,35 @@ $username = "root";
 $password = "";
 $dbname = "Khubaib";
 
-$conn = mysqli_connect(null, "root", "", "khubaib13102",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
-//$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT * FROM PRODUCT_13102";
+$sql = "SELECT * FROM SALESPERSON_13102";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     echo '<div align="center">';
     echo "<table>
 	 <tr>
-	 <th>Code</th>
+	 <th>Salesperson ID</th>
 	 <th>Name</th>
-	 <th>Brand</th>
-	 <th>Type</th>
-	 <th>Shade</th>
-	 <th>Size</th>
-	 <th>Price</th>
+	 <th>Contact Number</th>
+	 <th>IDs of Customers</th>
 	 </tr>";
 
     while($row = $result->fetch_assoc()) {
         echo "<tr>
-	     <td>".$row["CODE"]."</td>
+	     <td>".$row["SP_ID"]."</td>
 	     <td>".$row["NAME"]."</td>
-	     <td>".$row["BRAND"]."</td>
-	     <td>".$row["TYPE"]."</td>
-	     <td>".$row["SHADE"]."</td>
-	     <td>".$row["SIZE"]."</td>
-	     <td>".$row["PRICE"]."</td>";
+	     <td>".$row["CONTACT_NO"]."</td>
+	     <td>".$row["CUSTOMER_ID"]."</td>";
 	     echo "<td>";
-	     echo "<a href='update.php?code={$row["CODE"]}' class='btn btn-primary m-r-1em'>Edit</a>";
+	     echo "<a href='update.php?id={$row["SP_ID"]}&cid={$row["CUSTOMER_ID"]}' class='btn btn-primary m-r-1em'>Edit</a>";
 	     echo " ";
-             echo "<a href='#' onclick='delete_user({$row["CODE"]});'  class='btn btn-danger'>Delete</a>";	
+             echo "<a href='#' onclick='delete_user({$row["SP_ID"]},{$row["CUSTOMER_ID"]});'  class='btn btn-danger'>Delete</a>";	
 	     echo "</td>";
 	     echo "</tr>";
     }
@@ -88,10 +81,10 @@ table{
 }
 </style>
 <script type='text/javascript'>
-function delete_user(code){
+function delete_user(spid,cid){
     var answer = confirm('Are you sure?');
     if (answer){
-        window.location = 'delete.php?code='+code;
+        window.location = 'delete.php?spid='+spid+'&cid='+cid;
     } 
 }
 </script>

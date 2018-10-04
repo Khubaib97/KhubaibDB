@@ -15,7 +15,8 @@ $password = "";
 $dbname = "Khubaib";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect(null, "root", "", "khubaib13102",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
+//$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

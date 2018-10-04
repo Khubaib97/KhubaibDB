@@ -4,21 +4,17 @@
 <body>
 <div class="container">
 <div class="page-header">
-	<h1 align="center">User Create</h1>
+	<h1 align="center">Salesperson Create</h1>
 </div>
       
 <?php
 $host = "localhost";
 $db_name = "Khubaib";
-$db_username = "root";
-$db_password = "";
+$username = "root";
+$password = "";
   
 try {
-    $dsn = getenv('MYSQL_DSN');
-    $user = getenv('MYSQL_USER');
-    $password = getenv('MYSQL_PASSWORD');
-    $con = new PDO($dsn, $user, $password);
-    //$con = new PDO("mysql:host={$host};dbname={$db_name}", $db_username, $db_password);
+    $con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
 }
 catch(PDOException $exception){
     echo "Connection error: " . $exception->getMessage();
@@ -26,17 +22,19 @@ catch(PDOException $exception){
 
 if($_POST){
     try{
-        $query = "INSERT INTO USER_13102 SET USERNAME=:USERNAME, PASSWORD=:PASSWORD, ACTIVE='Y', SALESPERSON=:SALESPERSON";
+        $query = "INSERT INTO SALESPERSON_13102 SET SP_ID=:SP_ID, NAME=:NAME, CONTACT_NO=:CONTACT_NO, CUSTOMER_ID=:CUSTOMER_ID";
  
         $stmt = $con->prepare($query);
 
-	$username=htmlspecialchars(strip_tags($_POST['USERNAME'])); 
-        $password=htmlspecialchars(strip_tags($_POST['PASSWORD']));
-        $salesperson=htmlspecialchars(strip_tags($_POST['SALESPERSON']));
+	$spid=htmlspecialchars(strip_tags($_POST['SP_ID'])); 
+        $name=htmlspecialchars(strip_tags($_POST['NAME']));
+        $contact=htmlspecialchars(strip_tags($_POST['CONTACT_NO']));
+        $cid=htmlspecialchars(strip_tags($_POST['CUSTOMER_ID']));
  
-	$stmt->bindParam(':USERNAME', $username);
-        $stmt->bindParam(':PASSWORD', $password);
-        $stmt->bindParam(':SALESPERSON', $salesperson);
+	$stmt->bindParam(':SP_ID', $spid);
+        $stmt->bindParam(':NAME', $name);
+        $stmt->bindParam(':CONTACT_NO', $contact);
+        $stmt->bindParam(':CUSTOMER_ID', $cid);
                   
         if($stmt->execute()){
             echo "<div class='alert alert-success'>Record was saved.</div>";
@@ -56,23 +54,27 @@ if($_POST){
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
     <table class='table table-hover table-responsive table-bordered'>
 	<tr>
-            <td>Username</td>
-            <td><input type='text' name='USERNAME' class='form-control' /></td>
+            <td>Salesperson ID</td>
+            <td><input type='text' name='SP_ID' class='form-control' /></td>
         </tr>
         <tr>
-            <td>Password</td>
-            <td><input type='text' name='PASSWORD' class='form-control' /></td>
+            <td>Name</td>
+            <td><input type='text' name='NAME' class='form-control' /></td>
         </tr>
         <tr>
-	<td>Salesperson ID</td>
+            <td>Contact Number</td>
+            <td><input type='text' name='CONTACT_NO' class='form-control' /></td>
+        </tr>
+	<tr>
+	<td>Customer ID</td>
 	<td>
 	<?php
-	$stmt = $con->prepare("select SP_ID from SALESPERSON_13102");
+	$stmt = $con->prepare("select Shop_ID from CUSTOMER_13102");
 	$stmt->execute();
-    	echo "<select name='SALESPERSON' class='form-control'>";
+    	echo "<select name='CUSTOMER_ID' class='form-control'>";
 	echo '<option value="">None</option>';
     	while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { 
-                  echo '<option value="'.$row["SP_ID"].'">'.$row["SP_ID"].'</option>';                
+                  echo '<option value="'.$row["Shop_ID"].'">'.$row["Shop_ID"].'</option>';                
 	}
     	echo "</select>";
 	?>

@@ -1,55 +1,51 @@
 <html>
 <div class="page-header">
-	<h1 align="center">Product Table</h1>
+	<h1 align="center">User Table</h1>
 </div>
 </html>
 <?php
 include('../main/session.php');
+if($login_session!=='admin'){
+    header('Location: /main/welcome.php?action=rejected');
+}
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 if($action=='deleted'){
     echo "<div class='alert alert-success'>Record was deleted.</div>";
 }
 $servername = "localhost";
-$username = "root";
-$password = "";
+$db_username = "root";
+$db_password = "";
 $dbname = "Khubaib";
 
-$conn = mysqli_connect(null, "root", "", "khubaib13102",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
-//$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $db_username, $db_password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT * FROM PRODUCT_13102";
+$sql = "SELECT * FROM USER_13102";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     echo '<div align="center">';
     echo "<table>
 	 <tr>
-	 <th>Code</th>
-	 <th>Name</th>
-	 <th>Brand</th>
-	 <th>Type</th>
-	 <th>Shade</th>
-	 <th>Size</th>
-	 <th>Price</th>
+	 <th>Username</th>
+	 <th>Password</th>
+	 <th>Active</th>
+	 <th>Salesperson</th>
 	 </tr>";
 
     while($row = $result->fetch_assoc()) {
         echo "<tr>
-	     <td>".$row["CODE"]."</td>
-	     <td>".$row["NAME"]."</td>
-	     <td>".$row["BRAND"]."</td>
-	     <td>".$row["TYPE"]."</td>
-	     <td>".$row["SHADE"]."</td>
-	     <td>".$row["SIZE"]."</td>
-	     <td>".$row["PRICE"]."</td>";
+	     <td>".$row["USERNAME"]."</td>
+	     <td>".$row["PASSWORD"]."</td>
+	     <td>".$row["ACTIVE"]."</td>
+	     <td>".$row["SALESPERSON"]."</td>";
 	     echo "<td>";
-	     echo "<a href='update.php?code={$row["CODE"]}' class='btn btn-primary m-r-1em'>Edit</a>";
+	     echo "<a href='update.php?username={$row["USERNAME"]}' class='btn btn-primary m-r-1em'>Edit</a>";
 	     echo " ";
-             echo "<a href='#' onclick='delete_user({$row["CODE"]});'  class='btn btn-danger'>Delete</a>";	
+             echo "<a href='delete.php?username={$row["USERNAME"]}' class='btn btn-danger'>Delete</a>";	
 	     echo "</td>";
 	     echo "</tr>";
     }
@@ -87,13 +83,5 @@ table{
     margin: 10px;
 }
 </style>
-<script type='text/javascript'>
-function delete_user(code){
-    var answer = confirm('Are you sure?');
-    if (answer){
-        window.location = 'delete.php?code='+code;
-    } 
-}
-</script>
 </head>
 </html>
