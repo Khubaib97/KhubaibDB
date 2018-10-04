@@ -17,7 +17,7 @@ $db_username = "root";
 $db_password = "";
 $dbname = "Khubaib";
 
-$conn = mysqli_connect(null, "root", "", "khubaib13102",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
+$conn = mysqli_connect(null, "root", "", "Khubaib",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
 //$conn = new mysqli($servername, $db_username, $db_password, $dbname);
 
 if ($conn->connect_error) {
