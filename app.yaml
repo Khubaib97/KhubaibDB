@@ -13,6 +13,6 @@ handlers:
 env_variables:
   # Replace USER, PASSWORD, DATABASE, and CONNECTION_NAME with the
   # values obtained when configuring your Cloud SQL instance.
-  MYSQL_DSN: 'mysql:unix_socket=/cloudsql/khubaib13102:asia-south1:khubaib13102;dbname=khubaib13102'
+  MYSQL_DSN: 'mysql:unix_socket=/cloudsql/khubaib13102:asia-south1:khubaib13102;dbname=Khubaib'
   MYSQL_USER: 'root'
   MYSQL_PASSWORD: ''
