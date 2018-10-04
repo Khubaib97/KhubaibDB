@@ -16,7 +16,8 @@
          
          header("location: welcome.php");
       }else {
-         echo "<div class='alert alert-danger'>Username or password was invalid</div>";
+	 
+         echo "<div class='alert alert-danger'>Username or password was invalid " . mysqli_connect_error() ."</div>";
       }
    }
 ?>
