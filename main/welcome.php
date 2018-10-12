@@ -19,6 +19,7 @@
 	<a href='/customer/table.php' class='btn btn-primary'>Customer</a>
 	<a href='/salesperson/table.php' class='btn btn-primary'>Salesperson</a>
 	<a href='/product/table.php' class='btn btn-primary'>Product</a>
+	<a href='/salesorder/table.php' class='btn btn-primary'>Salesorder</a>
 	</div>
 	</tr>
 	<tr>
