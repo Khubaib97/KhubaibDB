@@ -4,7 +4,7 @@
 </div>
 </html>
 <?php
-include('../main/session.php');
+include($_SERVER['DOCUMENT_ROOT'].'/main/session.php');
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 if($action=='deleted'){
     echo "<div class='alert alert-success'>Record was deleted.</div>";

@@ -4,7 +4,7 @@
 </div>
 </html>
 <?php
-include('../main/session.php');
+include($_SERVER['DOCUMENT_ROOT'].'/main/session.php');
 if($login_session!=='admin'){
     header('Location: /main/welcome.php?action=rejected');
 }
