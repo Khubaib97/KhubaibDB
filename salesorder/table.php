@@ -43,7 +43,12 @@
     	echo "</select>";
 	?>
 	<br />
-                     <div id="live_data"></div>            
+                     <div id="live_data"></div>
+	<br />
+	<div align="center" style="margin: 20px">
+	<a href='/main/welcome.php' class='btn btn-primary m-r-1em'>Home</a>
+	<a href = '/main/logout.php' class='btn btn-danger'>Sign Out</a>
+	</div>            
                 </div>  
            </div>  
       </body>  
