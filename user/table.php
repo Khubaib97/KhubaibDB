@@ -4,20 +4,7 @@
 </div>
 </html>
 <?php
-   $db = mysqli_connect(null, "root", "", "Khubaib",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
-   session_start();
-   
-   $user_check = $_SESSION['login_user'];
-   
-   $ses_sql = mysqli_query($db,"select USERNAME from USER_13102 where USERNAME='$user_check'");
-   
-   $row1 = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
-   
-   $login_session = $row1['USERNAME'];
-   
-   if(!isset($_SESSION['login_user'])){
-      header("location:/main/login.php");
-   }
+include('../main/session.php');
 if($login_session!=='admin'){
     header('Location: /main/welcome.php?action=rejected');
 }
@@ -30,8 +17,7 @@ $db_username = "root";
 $db_password = "";
 $dbname = "Khubaib";
 
-$conn = mysqli_connect(null, "root", "", "Khubaib",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
-//$conn = new mysqli($servername, $db_username, $db_password, $dbname);
+$conn = new mysqli($servername, $db_username, $db_password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

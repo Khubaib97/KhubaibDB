@@ -10,7 +10,13 @@
    <head>
       <title>Home Page</title>
    </head>
-   
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
+   <br />
    <body>
       <h1 align="center">Welcome, <?php echo $login_session; ?>!</h1>
 	<table>

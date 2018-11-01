@@ -1,5 +1,8 @@
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "Khubaib";
 
-
-$db = mysqli_connect(null, "root", "", "Khubaib",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
+$db = new mysqli($servername, $username, $password, $dbname);
 ?>

@@ -1,5 +1,10 @@
 <?php
-   include('dbconn.php');
+   $servername = "localhost";
+   $username = "root";
+   $password = "";
+   $dbname = "Khubaib";
+
+   $db = new mysqli($servername, $username, $password, $dbname);
    session_start();
    
    $user_check = $_SESSION['login_user'];

@@ -1,5 +1,5 @@
 <?php  
- $connect = mysqli_connect(null, "root", "", "Khubaib",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
+ $connect = mysqli_connect("localhost", "root", "", "Khubaib");  
  $id = $_POST["id"];  
  $text = $_POST["text"];  
  $column_name = $_POST["column_name"];  

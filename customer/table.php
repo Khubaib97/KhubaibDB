@@ -4,20 +4,7 @@
 </div>
 </html>
 <?php
-   $db = mysqli_connect(null, "root", "", "Khubaib",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
-   session_start();
-   
-   $user_check = $_SESSION['login_user'];
-   
-   $ses_sql = mysqli_query($db,"select USERNAME from USER_13102 where USERNAME='$user_check'");
-   
-   $row1 = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
-   
-   $login_session = $row1['USERNAME'];
-   
-   if(!isset($_SESSION['login_user'])){
-      header("location:/main/login.php");
-   }
+include('../main/session.php');
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 if($action=='deleted'){
     echo "<div class='alert alert-success'>Record was deleted.</div>";
@@ -28,8 +15,7 @@ $password = "";
 $dbname = "Khubaib";
 
 // Create connection
-$conn = mysqli_connect(null, "root", "", "Khubaib",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
-//$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

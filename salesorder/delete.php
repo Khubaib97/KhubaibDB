@@ -1,5 +1,5 @@
 <?php  
- $connect = mysqli_connect(null, "root", "", "Khubaib",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");  
+ $connect = mysqli_connect("localhost", "root", "", "Khubaib");  
  $sql = "DELETE FROM SALESORDER_13102 WHERE ORDER_NO = '".$_POST["id"]."'";  
  if(mysqli_query($connect, $sql))  
  {  

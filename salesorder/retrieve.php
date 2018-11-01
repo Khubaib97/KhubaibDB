@@ -1,5 +1,5 @@
 <?php  
- $connect = mysqli_connect(null, "root", "", "Khubaib",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
+ $connect = mysqli_connect("localhost", "root", "", "Khubaib");  
  $output = '';  
  $sql = "SELECT * FROM SALESORDER_13102 WHERE CUSTOMER='".$_POST["CUSTOMER_ID"]."' ORDER BY ORDER_NO";  
  $sql1 = "SELECT * FROM CUSTOMER_13102 WHERE Shop_ID='".$_POST["CUSTOMER_ID"]."'";
@@ -73,7 +73,7 @@
     			$output .= '</select>
 		     </td>
                      <td class="QUANTITY" data-id6="'.$row["ORDER_NO"].'" contenteditable>'.$row["QUANTITY"].'</td>
-                     <td class="RATE" data-id7="'.$row["ORDER_NO"].'" contenteditable>'.$row["RATE"].'</td>
+                     <td>'.$row["RATE"].'</td>
                      <td>'.$row["AMOUNT"].'</td> 
                      <td><button type="button" name="delete_btn" data-id9="'.$row["ORDER_NO"].'" class="btn btn-xs btn-danger btn_delete">Delete</button></td>  
                 </tr>  

@@ -1,18 +1,5 @@
 <?php
-   $db = mysqli_connect(null, "root", "", "Khubaib",null,"/cloudsql/khubaib13102:asia-south1:khubaib13102");
-   session_start();
-   
-   $user_check = $_SESSION['login_user'];
-   
-   $ses_sql = mysqli_query($db,"select USERNAME from USER_13102 where USERNAME='$user_check'");
-   
-   $row1 = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
-   
-   $login_session = $row1['USERNAME'];
-   
-   if(!isset($_SESSION['login_user'])){
-      header("location:/main/login.php");
-   }
+include('../main/session.php');
 ?>
 <html>  
       <head>  
@@ -29,10 +16,11 @@
 		     </div>  
 	<h3>Select Customer ID:</h3>
 	<?php
-	$dsn = getenv('MYSQL_DSN');
-    	$user = getenv('MYSQL_USER');
-    	$password = getenv('MYSQL_PASSWORD');
-    	$con = new PDO($dsn, $user, $password);
+	$host = "localhost";
+	$db_name = "Khubaib";
+	$username = "root";
+	$password = "";
+	$con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
 	$stmt = $con->prepare("select Shop_ID from CUSTOMER_13102");
 	$stmt->execute();
     	echo "<select id='CUSTOMER_ID' class='form-control'>";
@@ -44,11 +32,10 @@
 	?>
 	<br />
                      <div id="live_data"></div>
-	<br />
-	<div align="center" style="margin: 20px">
-	<a href='/main/welcome.php' class='btn btn-primary m-r-1em'>Home</a>
-	<a href = '/main/logout.php' class='btn btn-danger'>Sign Out</a>
-	</div>            
+		     <div align="center">
+		     <a href='/main/welcome.php' class='btn btn-primary m-r-1em'>Home</a>
+		     <a href = '/main/logout.php' class='btn btn-danger'>Sign Out</a>            
+		     </div>
                 </div>  
            </div>  
       </body>  
@@ -80,9 +67,10 @@
 	   var SALESPERSON = $('#SALESPERSON').val();
 	   var PRODUCT = $('#PRODUCT').val();
 	   var QUANTITY1 = $('#QUANTITY').text(); 
+	   var RATE1 = $('#RATE').text();
 	   var QUANTITY = parseInt(QUANTITY1);
-	   var RATE = 0;
-	   var AMOUNT = 0;
+	   var RATE = parseInt(RATE1);
+	   var AMOUNT = QUANTITY*RATE;
            if(ORDER_NO == '')  
            {  
                 alert("Enter ORDER NUMBER");  
@@ -105,7 +93,6 @@
                 dataType:"text",  
                 success:function(data)  
                 {  
-                     //alert(data); 
                      fetch_data();  
                 }  
            })  
@@ -118,7 +105,6 @@
                 data:{id:id, text:text, column_name:column_name},  
                 dataType:"text",  
                 success:function(data){  
-                     //alert(data);  
 	             fetch_data();
                 }  
            });  
@@ -147,12 +133,7 @@
            var id = $(this).data("id6");  
            var QUANTITY = $(this).text();  
            edit_data(id, QUANTITY, "QUANTITY");  
-      });
-      $(document).on('blur', '.RATE', function(){  
-           var id = $(this).data("id7");  
-           var RATE = $(this).text();  
-           edit_data(id, RATE, "RATE");  
-      });   
+      });  
       $(document).on('click', '.btn_delete', function(){  
            var id=$(this).data("id9");  
            if(confirm("Are you sure you want to delete this?"))  
@@ -162,8 +143,7 @@
                      method:"POST",  
                      data:{id:id},  
                      dataType:"text",  
-                     success:function(data){  
-                          //alert(data);  
+                     success:function(data){    
                           fetch_data();  
                      }  
                 });  
