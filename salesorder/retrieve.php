@@ -34,7 +34,7 @@
 <h3>Invoice Lines</h3>
       <div class="table-responsive">  
            <table class="table table-bordered">  
-                <tr>  
+                <tr style="background-color: #FF8C00;">  
                      <th width="10%" style="padding: 20px;">Order No.</th>  
                      <th width="40%" style="padding: 20px;">Customer ID</th>  
                      <th width="40%" style="padding: 20px;">Date</th> 
@@ -52,7 +52,7 @@
 	   $result3 = mysqli_query($connect, $sql3);
 	   $result2 = mysqli_query($connect, $sql2);
            $output .= '  
-                <tr>  
+                <tr style="background-color: #FFA500;">  
                      <td class="ORDER_NO" data-id1="'.$row["ORDER_NO"].'" contenteditable>'.$row["ORDER_NO"].'</td>  
                      <td>'.$row["CUSTOMER"].'</td> 
                      <td class="DATE" data-id3="'.$row["ORDER_NO"].'" contenteditable>'.$row["DATE"].'</td>
@@ -80,7 +80,7 @@
            ';  
       }  
       $output .= '  
-           <tr>  
+           <tr style="background-color: #FFA500;">  
                 <td id="ORDER_NO" contenteditable></td>  
                 <td id="CUSTOMER">'.$_POST["CUSTOMER_ID"].'</td>  
                 <td id="DATE" contenteditable></td>  
@@ -112,7 +112,7 @@
  else  
  {  
       $output .= '
-		<tr>  
+		<tr style="background-color: #FFA500;">  
                 <td id="ORDER_NO" contenteditable></td>  
                 <td id="CUSTOMER">'.$_POST["CUSTOMER_ID"].'</td>  
                 <td id="DATE" contenteditable></td>  
