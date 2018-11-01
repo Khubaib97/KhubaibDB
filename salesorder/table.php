@@ -18,8 +18,8 @@ include('../main/session.php');
 	<?php
 	$host = "localhost";
 	$db_name = "Khubaib";
-	$username = "root";
-	$password = "";
+	$username = "khubaib";
+	$password = "13102";
 	$con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
 	$stmt = $con->prepare("select Shop_ID from CUSTOMER_13102");
 	$stmt->execute();

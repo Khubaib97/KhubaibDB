@@ -10,8 +10,8 @@ if($action=='deleted'){
     echo "<div class='alert alert-success'>Record was deleted.</div>";
 }
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "khubaib";
+$password = "13102";
 $dbname = "Khubaib";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

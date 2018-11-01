@@ -14,8 +14,8 @@ $username=isset($_GET['username']) ? $_GET['username'] : die('ERROR: Record user
 
 $host = "localhost";
 $db_name = "Khubaib";
-$db_username = "root";
-$db_password = "";
+$db_username = "khubaib";
+$db_password = "13102";
   
 try {
     $con = new PDO("mysql:host={$host};dbname={$db_name}", $db_username, $db_password);

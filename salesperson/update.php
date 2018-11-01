@@ -15,8 +15,8 @@ $cid=isset($_GET['cid']) ? $_GET['cid'] : die('ERROR: Record CID not found.');
 
 $host = "localhost";
 $db_name = "Khubaib";
-$username = "root";
-$password = "";
+$username = "khubaib";
+$password = "13102";
   
 try {
     $con = new PDO("mysql:host={$host};dbname={$db_name}", $username, $password);
