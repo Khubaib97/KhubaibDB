@@ -61,8 +61,8 @@ echo '<div align="center" style="margin: 20px">';
 echo "<a href='create.php' class='btn btn-primary m-r-1em'>Create New Record</a>";
 echo '</div>';
 echo '<div align="center" style="margin: 20px">';
-echo "<a href='/main/welcome.php' class='btn btn-primary m-r-1em'>Home</a>";
-echo "<a href = '/main/logout.php' class='btn btn-danger'>Sign Out</a>";
+echo "<a href='../main/welcome.php' class='btn btn-primary m-r-1em'>Home</a>";
+echo "<a href = '../main/logout.php' class='btn btn-danger'>Sign Out</a>";
 echo '</div>';
 $conn->close();
 ?>
