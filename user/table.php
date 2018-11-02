@@ -6,7 +6,7 @@
 <?php
 include('../main/session.php');
 if($login_session!=='admin'){
-    header('Location: /main/welcome.php?action=rejected');
+    header('Location: ../main/welcome.php?action=rejected');
 }
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 if($action=='deleted'){
