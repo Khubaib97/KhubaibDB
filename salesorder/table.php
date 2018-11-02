@@ -70,7 +70,7 @@ include('../main/session.php');
 	   var RATE1 = $('#RATE').text();
 	   var QUANTITY = parseInt(QUANTITY1);
 	   var RATE = parseInt(RATE1);
-	   var AMOUNT = QUANTITY*RATE;
+	   var AMOUNT = 0;
            if(ORDER_NO == '')  
            {  
                 alert("Enter ORDER NUMBER");  
