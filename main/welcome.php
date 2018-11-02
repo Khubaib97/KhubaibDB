@@ -22,15 +22,15 @@
 	<table>
 	<tr>
 	<div align="center" style="margin: 20px">
-	<a href='/customer/table.php' class='btn btn-primary'>Customer</a>
-	<a href='/salesperson/table.php' class='btn btn-primary'>Salesperson</a>
-	<a href='/product/table.php' class='btn btn-primary'>Product</a>
-	<a href='/salesorder/table.php' class='btn btn-primary'>Salesorder</a>
+	<a href='../customer/table.php' class='btn btn-primary'>Customer</a>
+	<a href='../salesperson/table.php' class='btn btn-primary'>Salesperson</a>
+	<a href='../product/table.php' class='btn btn-primary'>Product</a>
+	<a href='../salesorder/table.php' class='btn btn-primary'>Salesorder</a>
 	</div>
 	</tr>
 	<tr>
 	<div align="center" style="margin: 20px">
-	<a href='/user/table.php' class='btn btn-primary'>User (Admin Account Only)</a>
+	<a href='../user/table.php' class='btn btn-primary'>User (Admin Account Only)</a>
 	</div>
 	</tr>
 	<tr>
