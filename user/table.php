@@ -5,9 +5,9 @@
 </html>
 <?php
 include('../main/session.php');
-if($login_session!=='admin'){
+/*if($login_session!=='admin'){
     header('Location: ../main/welcome.php?action=rejected');
-}
+}*/
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 if($action=='deleted'){
     echo "<div class='alert alert-success'>Record was deleted.</div>";

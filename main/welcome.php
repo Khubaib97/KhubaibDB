@@ -1,9 +1,9 @@
 <?php
    include('session.php');
    $action = isset($_GET['action']) ? $_GET['action'] : "";
-   if($action=='rejected'){
+   /*if($action=='rejected'){
     echo "<div class='alert alert-danger'>Only the admin may access the user table.</div>";
-   }
+   }*/
 ?>
 <html>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -26,11 +26,7 @@
 	<a href='../salesperson/table.php' class='btn btn-primary'>Salesperson</a>
 	<a href='../product/table.php' class='btn btn-primary'>Product</a>
 	<a href='../salesorder/table.php' class='btn btn-primary'>Salesorder</a>
-	</div>
-	</tr>
-	<tr>
-	<div align="center" style="margin: 20px">
-	<a href='../user/table.php' class='btn btn-primary'>User (Admin Account Only)</a>
+	<a href='../user/table.php' class='btn btn-primary'>User</a>
 	</div>
 	</tr>
 	<tr>

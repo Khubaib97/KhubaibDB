@@ -13,7 +13,7 @@
 		
       if(mysqli_num_rows($result) == 1) {
          $_SESSION['login_user'] = $username;
-         
+         mysqli_query($db, "UPDATE USER_13102 SET ACTIVE='Y' WHERE USERNAME='$username'");
          header("location: welcome.php");
       }else {
          echo "<div class='alert alert-danger'>Username or password was invalid</div>";

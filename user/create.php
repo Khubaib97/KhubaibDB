@@ -22,7 +22,7 @@ catch(PDOException $exception){
 
 if($_POST){
     try{
-        $query = "INSERT INTO USER_13102 SET USERNAME=:USERNAME, PASSWORD=:PASSWORD, ACTIVE='Y', SALESPERSON=:SALESPERSON";
+        $query = "INSERT INTO USER_13102 SET USERNAME=:USERNAME, PASSWORD=:PASSWORD, ACTIVE='N', SALESPERSON=:SALESPERSON";
  
         $stmt = $con->prepare($query);
 
