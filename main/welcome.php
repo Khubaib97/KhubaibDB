@@ -45,6 +45,11 @@
 	</tr>
 	<tr>
 	<div align="center" style="margin: 20px">
+	<a href='../survey/table.php' class='btn btn-primary'>Field Survey</a>
+	</div>
+	</tr>
+	<tr>
+	<div align="center" style="margin: 20px">
 	<a href = "logout.php" class="btn btn-danger">Sign Out</a>
 	</div>
 	</tr>
