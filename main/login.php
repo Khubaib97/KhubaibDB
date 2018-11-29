@@ -43,4 +43,16 @@
          </div>			
       </div>
 </body>
+<style>
+head, body{
+	animation: colorchange 20s infinite;
+}
+@keyframes colorchange {
+     0%  {background: #FFFF00;}
+    25%  {background: #FF0000;}
+    50%  {background: #00FF00;}
+    75%  {background: #00BFFF;}
+    100% {background: #FFA500;}
+}
+</style>
 </html>

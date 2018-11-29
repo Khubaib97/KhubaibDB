@@ -74,7 +74,7 @@
 ?>
 
 <form action = "table.php" method="post" enctype="multipart/form-data">
-    <table class='table table-hover table-responsive table-bordered'>
+    <table class='table table-hover table-responsive table-bordered' style="background-color: #FFA500;">
 	<tr>
             <td>Geographical Coordinates</td>
             <td><input type='text' name='Coordinates' class='form-control' /></td>
